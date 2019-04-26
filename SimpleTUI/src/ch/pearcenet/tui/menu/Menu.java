@@ -6,13 +6,10 @@ public class Menu {
 	protected String[] options;
 	protected int numOptions;
 	
-	/*
-	 * 	Constructors
-	 */
-	
+	//Constructor
 	public Menu (String title, String[] options) {
 		this.title = title;
-		this.options = options;
+		this.options = options.clone();
 		numOptions = options.length;
 	}
 	
@@ -25,6 +22,13 @@ public class Menu {
 		for (String opt: options) {
 			System.out.println(opt);
 		}
+	}
+	
+	public String getOption(int index) {
+		if (index <= numOptions && index > 0) {
+			return options[index];
+		}
+		return "Warning: That index is out of range. (0-"+numOptions+")";
 	}
 
 }

@@ -7,7 +7,7 @@ public class NumberMenu extends Menu implements Offerable{
 	public NumberMenu(String title, String[] options) {
 		super(title, options);
 		for (int i=0; i<super.numOptions; i++) {
-			options[i] = (i+1)+". "+options[i];
+			this.options[i] = (i+1)+". "+this.options[i];
 		}
 	}
 
@@ -28,7 +28,7 @@ public class NumberMenu extends Menu implements Offerable{
 		} else {
 			result = Input.getInt(1, super.numOptions);
 		}
-		return result;
+		return result-1;
 	}
 
 }

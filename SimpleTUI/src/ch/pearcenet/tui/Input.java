@@ -43,6 +43,7 @@ public class Input {
 	
 	//Gets a string from input
 	public static String getString() {
+		System.out.print(prompt);
 		return input.nextLine();
 	}
 	
