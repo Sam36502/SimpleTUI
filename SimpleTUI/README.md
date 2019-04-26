@@ -1,3 +1,3 @@
 # SimpleTUI
 
-A Java library for making TUIs
+A simple TUI library for Java
