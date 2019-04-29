@@ -2,6 +2,11 @@ package ch.pearcenet.tui;
 
 public class Output {
 	
+	//Simplifies Output
+	public static void println(String str) {
+		System.out.println(str);
+	}
+	
 	/*
 	 * 	SIMPLE BITMAP IMAGES
 	 */

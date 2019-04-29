@@ -1,5 +1,6 @@
 package ch.pearcenet.tui;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -45,6 +46,51 @@ public class Input {
 	public static String getString() {
 		System.out.print(prompt);
 		return input.nextLine();
+	}
+	
+	/*
+	 * 	Boolean Input
+	 */
+	
+	public static boolean getBool() {
+		System.out.print("(y/n)");
+		
+		String in;
+		boolean isValid = false;
+		boolean result = false;
+		
+		do {
+			in = Input.getString().toLowerCase();
+			if ("y".equals(in) || "yes".equals(in)) {
+				result = true;
+				isValid = true;
+			} else if ("n".equals(in) || "no".equals(in)) {
+				result = false;
+				isValid = true;
+			} else {
+				System.out.println("Warning: Only y/n allowed.");
+			}
+		} while (!isValid);
+		return result;
+	}
+	
+	/*
+	 * 	Filename Input
+	 */
+	
+	//Gets a file from user
+	public static File getFile() {
+		boolean isValid = false;
+		File res;
+		do {
+			res = new File(Input.getString());
+			if (res.exists()) {
+				isValid = true;
+			} else {
+				System.out.println("Warning: That file doesn't exist.");
+			}
+		} while (!isValid);
+		return res;
 	}
 	
 	/*
@@ -131,6 +177,91 @@ public class Input {
 		} while (!isValid);
 		
 		return tmp;
+	}
+	
+	//Reads an array of integers from user with a pre-set size
+	public static int[] getIntArray(int len) {
+		int[] res = new int[len];
+		
+		do {
+			System.out.println(" ");
+			for (int i=0; i<len; i++) {
+				System.out.println("["+(i+1)+"]");
+				res[i] = Input.getInt();
+			}
+			
+			for (int i=0; i<len; i++) {
+				System.out.print("["+res[i]+"] ");
+			}
+			System.out.println("Is this correct?");
+		} while (!Input.getBool());
+		return res;
+	}
+	
+	//Reads an array of integers from user
+	public static int[] getIntArray() {
+		int len;
+		
+		do {
+			System.out.println("How many values do you want to enter?");
+			len = Input.getInt();
+			
+			for (int i=0; i<len; i++) {
+				System.out.print("["+(i+1)+"] ");
+			}
+			
+			System.out.println("Is this correct?");
+		} while (!Input.getBool());
+		
+		
+		int[] res = new int[len];
+		
+		do {
+			System.out.println(" ");
+			for (int i=0; i<len; i++) {
+				System.out.println("["+(i+1)+"]");
+				res[i] = Input.getInt();
+			}
+			
+			for (int i=0; i<len; i++) {
+				System.out.print("["+res[i]+"] ");
+			}
+			System.out.println("Is this correct?");
+		} while (!Input.getBool());
+		return res;
+	}
+	
+	//Gets a matrix of integers from the user
+	public static int[][] getMatrix(int width, int height) {
+		int[][] result = new int[height][width];
+		
+		do {
+			for (int i=1; i<=width*height; i++) {
+				if (i % width == 0) {
+					System.out.println("["+i+"]");
+				} else {
+					System.out.print("["+i+"] ");
+				}
+			}
+			
+			for (int y=0; y<height; y++) {
+				for (int x=0; x<width; x++) {
+					System.out.println("["+(x*y+1)+"]");
+					result[y][x] = Input.getInt();
+				}
+			}
+			
+			for (int y=0; y<height; y++) {
+				for (int x=0; x<width; x++) {
+					System.out.print("["+result[y][x]+"]");
+				}
+				System.out.println(" ");
+			}
+			
+			System.out.println("Is this correct?");
+		} while (!Input.getBool());
+		
+		return result;
 	}
 	
 	/*
