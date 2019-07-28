@@ -8,7 +8,7 @@ above to download the latest version of the library.
 ## Description
 
 Have you ever wanted to just quickly write a tool in java that didn't need a fancy GUI
-but you also didn't feel like writing all the code for verifying input numbers and reading in arrays easily
+but you also didn't feel like writing all the code for verifying inputs and menus
 for the 100th time?
 
 Well so did I.
