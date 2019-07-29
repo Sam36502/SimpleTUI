@@ -2,7 +2,7 @@
 
 ## Download
 
-Click [here](https://github.com/Sam36502/SimpleTUI/blob/master/release/simpletui_2.0.0.jar) or on the releases tab
+Click [here](https://github.com/Sam36502/SimpleTUI/blob/master/release/SimpleTUI_2.0.0.jar) or on the releases tab
 above to download the latest version of the library.
 
 ## Description
