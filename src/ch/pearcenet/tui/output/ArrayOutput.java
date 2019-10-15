@@ -4,31 +4,61 @@ public class ArrayOutput {
 	
 	//Prints out an array of objects like a sentence i.e "obj1, obj2, obj3 and obj4"
 	public static String sentenceArray(Object[] arr) {
-		String out = arr[0].toString();
-		for (int i = 1; i < arr.length - 1; i++) {
-			out = out + ", " + arr[i].toString();
+		String out = "";
+		if (arr.length < 1) {
+			out = "";
+		} else if (arr.length == 1) {
+			out = arr[0].toString();
+		} else if (arr.length == 2) {
+			out = arr[0].toString() + " and " + arr[1].toString();
+		} else {
+			if (arr[0] != null)
+			out = arr[0].toString();
+			for (int i = 1; i < arr.length - 1; i++) {
+				if (arr[i] != null)
+				out = out + ", " + arr[i].toString();
+			}
+			if (arr[arr.length - 1] != null)
+			out = out + " and " + arr[(arr.length - 1)].toString();
 		}
-		out = out + " and " + arr[(arr.length - 1)].toString();
 		return out;
 	}
 	
 	//Prints out an array of doubles like a sentence i.e "3.141, 1.41, 1.61 and 2.7182"
 	public static String sentenceArray(double[] arr) {
-		String out = "" + arr[0];
-		for (int i = 1; i < arr.length - 1; i++) {
-			out = out + ", " + arr[i];
+		String out = null;
+		if (arr.length < 1) {
+			out = "";
+		} else if (arr.length == 1) {
+			out = "" + arr[0];
+		} else if (arr.length == 2) {
+			out = arr[0] + " and " + arr[1];
+		} else {
+			out = "" + arr[0];
+			for (int i = 1; i < arr.length - 1; i++) {
+				out = out + ", " + arr[i];
+			}
+			out = out + " and " + arr[(arr.length - 1)];
 		}
-		out = out + " and " + arr[(arr.length - 1)];
 		return out;
 	}
 
 	//Prints out an array of ints like a sentence i.e "1, 2, 3 and 4"
 	public static String sentenceArray(int[] arr) {
-		String out = "" + arr[0];
-		for (int i = 1; i < arr.length - 1; i++) {
-			out = out + ", " + arr[i];
+		String out = null;
+		if (arr.length < 1) {
+			out = "";
+		} else if (arr.length == 1) {
+			out = "" + arr[0];
+		} else if (arr.length == 2) {
+			out = arr[0] + " and " + arr[1];
+		} else {
+			out = "" + arr[0];
+			for (int i = 1; i < arr.length - 1; i++) {
+				out = out + ", " + arr[i];
+			}
+			out = out + " and " + arr[(arr.length - 1)];
 		}
-		out = out + " and " + arr[(arr.length - 1)];
 		return out;
 	}
 
