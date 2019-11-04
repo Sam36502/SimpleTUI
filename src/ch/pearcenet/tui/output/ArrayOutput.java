@@ -4,6 +4,20 @@ public class ArrayOutput {
 	
 	//Prints out an array of objects like a sentence i.e "obj1, obj2, obj3 and obj4"
 	public static String sentenceArray(Object[] arr) {
+		
+		// Remove all null values from the array
+		int len = 0;
+		for (Object o: arr) if (o != null) len++;
+		
+		Object[] newarr = new Object[len];
+		int ind=0;
+		for (Object obj: arr) {
+			if (obj != null) {
+				newarr[ind++] = obj;
+			}
+		}
+		arr = newarr;
+		
 		String out = "";
 		if (arr.length < 1) {
 			out = "";
@@ -12,13 +26,10 @@ public class ArrayOutput {
 		} else if (arr.length == 2) {
 			out = arr[0].toString() + " and " + arr[1].toString();
 		} else {
-			if (arr[0] != null)
 			out = arr[0].toString();
 			for (int i = 1; i < arr.length - 1; i++) {
-				if (arr[i] != null)
 				out = out + ", " + arr[i].toString();
 			}
-			if (arr[arr.length - 1] != null)
 			out = out + " and " + arr[(arr.length - 1)].toString();
 		}
 		return out;
