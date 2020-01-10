@@ -7,10 +7,10 @@ These guidelines are broken down into different
 sections based on how you might want to contribute.
 
 Here is a table of contents to help you navigate:
-["I found a bug"](#i-found-a-bug)
-["I want a new feature"](#i-want-a-new-feature)
-["I want to contribute to the wiki"](#i-want-to-contribute-to-the-wiki)
-["I want to contribute code"](#i-want-to-contribute-code)
+- ["I found a bug"](#i-found-a-bug)
+- ["I want a new feature"](#i-want-a-new-feature)
+- ["I want to contribute to the wiki"](#i-want-to-contribute-to-the-wiki)
+- ["I want to contribute code"](#i-want-to-contribute-code)
 
 ## I found a bug!
 Great! I don't doubt that this is still pretty buggy, I
@@ -56,7 +56,7 @@ page. Create a new issue and select the wiki request template.
 Then just fill out the required information. I will review the
 request and decide whether or not it should be implemented.
 
-## I want to add code!
+## I want to contribute code!
 Magnificent! I did begin writing this library after only
 a year of learning java, so I'm sure there are improvements
 to be made *everywhere*. If you would like to fix a bug or
