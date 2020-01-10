@@ -24,3 +24,8 @@ Some of the features included are:
  * Left / right alignment
  * Menus with verification
  * Secure password input
+
+
+
+Any experienced coders who may randomly stumble across this:
+rest assured, I'm overhauling the library for version 2.2.
