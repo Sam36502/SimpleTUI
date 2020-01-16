@@ -5,7 +5,7 @@
 ### Download Latest Version: [SimpleTUI 2.1](https://github.com/Sam36502/SimpleTUI/raw/master/release/SimpleTUI_2.1.0.jar)
 
 ## Installation
-If you are new to using libraries, follow these instructions to start using the library.
+If you are new to using libraries, follow these instructions to get started.
 
 ### Eclipse
  1. Right-click your project on the left pane.
