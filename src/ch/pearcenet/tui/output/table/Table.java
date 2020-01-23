@@ -1,10 +1,27 @@
 package ch.pearcenet.tui.output.table;
 
+/**
+ * Table Class
+ * Formats and displays a group of Columns together
+ *
+ * @author Samuel Pearce <sam @ aepearce.com>
+ * @version 2.1
+ */
 public class Table {
-	
+
+	/**
+	 * The Columns to display in this Table
+	 */
 	private Column<?>[] columns;
+
+	/**
+	 * The length of the longest Column, to format the rest by
+	 */
 	private int longest = 0;
 
+	/**
+	 * @param columns The Columns to use in this Table
+	 */
 	public Table(Column<?>[] columns) {
 		this.columns = ((Column[]) columns.clone());
 
@@ -15,7 +32,12 @@ public class Table {
 		}
 	}
 
-	//Prints out the table with an ascii char border
+	/**
+	 * Displays the Table with all the Columns
+	 * lined up with one another and formatted
+	 * as chosen for each column. The whole
+	 * table is also surrounded by an ASCII-art border.
+	 */
 	public void printTable() {
 		
 		//Top Border

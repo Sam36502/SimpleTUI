@@ -2,9 +2,23 @@ package ch.pearcenet.tui.input;
 
 import ch.pearcenet.tui.output.Output;
 
+/**
+ * Array Input Class
+ * Makes getting an array of values from the user more convenient
+ *
+ * @author Samuel Pearce <sam @ aepearce.com>
+ * @version 2.1
+ */
 public class ArrayInput {
 
-	//Prompts the user for an int array of a fixed length
+	/**
+	 * Prompts the user for an integer array with a predefined
+	 * length. The user is asked to confirm their choice and
+	 * may re-enter all the values if they don't confirm their choice.
+	 *
+	 * @param len Length of the array to prompt the user for.
+	 * @return The integer array entered by the user.
+	 */
 	public static int[] getIntArray(int len) {
 
 		int[] res = new int[len];
@@ -43,8 +57,15 @@ public class ArrayInput {
 		
 		return res;
 	}
-	
-	//Prompts the user for an int array of any size
+
+	/**
+	 * Prompts the user for an integer array size and then prompts
+	 * them for that many integers. The user will be asked to confirm
+	 * the array's contents. If the user does not agree with the array's
+	 * contents, they can re-enter all elements of the array again.
+	 *
+	 * @return The integer array entered by the user.
+	 */
 	public static int[] getIntArray() {
 		System.out.println("How many values do you want to enter?");
 		return getIntArray(Input.getInt());
