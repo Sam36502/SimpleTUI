@@ -4,10 +4,10 @@ import ch.pearcenet.tui.output.Output;
 
 /**
  * Array Input Class
- * Handles input specifically for Arrays
+ * Makes getting an array of values from the user more convenient
  *
  * @author Samuel Pearce <sam @ aepearce.com>
- * @version 2.0
+ * @version 2.1
  */
 public class ArrayInput {
 

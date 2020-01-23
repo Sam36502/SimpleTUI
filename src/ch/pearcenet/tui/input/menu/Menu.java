@@ -1,35 +1,59 @@
 package ch.pearcenet.tui.input.menu;
 
-public class Menu {
-	
-	protected String title;
-	protected String[] options;
-	protected int numOptions;
+import ch.pearcenet.tui.output.Output;
 
-	public Menu(String title, String[] options) {
-		this.title = title;
-		this.options = ((String[]) options.clone());
-		numOptions = options.length;
+/**
+ * Menu Class
+ * Acts as the superclass that the other menu
+ */
+public class Menu {
+
+	public static enum MenuType {
+		NUMBER,
+		STRING,
+		LETTER
 	}
-	
-	//Sets the title of this Menu
+
+	private String title;
+	private String[] options;
+	private MenuType type;
+
+	public Menu(String title, String[] options, MenuType type) {
+		this.title = title;
+		this.options = options;
+		this.type = type;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	
-	//Outputs this menu
-	public void print() {
-		System.out.println("\n" + title + "\n");
-		for (String opt: options) {
-			System.out.println(opt);
-		}
+
+	public String[] getOptions() {
+		return options;
 	}
-	
-	//Gets an option
-	public String getOption(int index) {
-		if ((index < numOptions) && (index > -1)) {
-			return options[index];
+
+	public MenuType getType() {
+		return type;
+	}
+
+	public void setType(MenuType type) {
+		this.type = type;
+	}
+
+	/**
+	 *
+	 */
+	public void prompt() {
+		System.out.println(Output.underline(title, 1));
+		for (String opt: options) {
+			switch (type) {
+				case LETTER:
+
+			}
 		}
-		return "Error: Invalid index. (0-" + numOptions + ")";
 	}
 }

@@ -1,8 +1,21 @@
 package ch.pearcenet.tui.output;
 
+/**
+ * Array Output Class
+ * Provides many static methods to make displaying arrays more convenient
+ *
+ * @author Samuel Pearce <sam @ aepearce.com>
+ * @version 2.1
+ */
 public class ArrayOutput {
-	
-	//Prints out an array of objects like a sentence i.e "obj1, obj2, obj3 and obj4"
+
+	/**
+	 * Formats an array of Objects like a natural sentence.
+	 * e.g.: {Obj1, Obj2, Obj3} -> "Obj1, Obj2 and Obj3"
+	 *
+	 * @param arr The array of Objects to format
+	 * @return The formatted string
+	 */
 	public static String sentenceArray(Object[] arr) {
 		
 		// Remove all null values from the array
@@ -34,8 +47,14 @@ public class ArrayOutput {
 		}
 		return out;
 	}
-	
-	//Prints out an array of doubles like a sentence i.e "3.141, 1.41, 1.61 and 2.7182"
+
+	/**
+	 * Formats an array of doubles like a natural sentence.
+	 * e.g.: {1.1, 2.2, 3.3} -> "1.1, 2.2 and 3.3"
+	 *
+	 * @param arr The array of doubles to format
+	 * @return The formatted string
+	 */
 	public static String sentenceArray(double[] arr) {
 		String out = null;
 		if (arr.length < 1) {
@@ -54,7 +73,13 @@ public class ArrayOutput {
 		return out;
 	}
 
-	//Prints out an array of ints like a sentence i.e "1, 2, 3 and 4"
+	/**
+	 * Formats an array of integers like a natural sentence.
+	 * e.g.: {1, 2, 3, 4} -> "1, 2, 3 and 4"
+	 *
+	 * @param arr The array of integers to format
+	 * @return The formatted string
+	 */
 	public static String sentenceArray(int[] arr) {
 		String out = null;
 		if (arr.length < 1) {
@@ -73,7 +98,13 @@ public class ArrayOutput {
 		return out;
 	}
 
-	//Prints out an array of Objects in boxes i.e. "[obj1] [obj2] [obj3] [obj4]"
+	/**
+	 * Formats an array of Objects in square brackets.
+	 * e.g.: {Obj1, Obj2, Obj3} -> "[Obj1] [Obj2] [Obj3]"
+	 *
+	 * @param arr The array of Objects to format
+	 * @return The formatted string
+	 */
 	public static String arrayOut(Object[] arr) {
 		String out = "";
 		Object[] arrayOfObject = arr;
@@ -84,8 +115,14 @@ public class ArrayOutput {
 		}
 		return out;
 	}
-	
-	//Prints out an array of doubles in boxes i.e. "[3.141] [1.41] [1.61] [2.7182]"
+
+	/**
+	 * Formats an array of doubles in square brackets.
+	 * e.g.: {1.1, 2.2, 3.3} -> "[1.1] [2.2] [3.3]"
+	 *
+	 * @param arr The array of doubles to format
+	 * @return The formatted string
+	 */
 	public static String arrayOut(double[] arr) {
 		String out = "";
 		double[] arrayOfDouble = arr;
@@ -96,8 +133,14 @@ public class ArrayOutput {
 		}
 		return out;
 	}
-	
-	//Prints out an array of ints in boxes i.e. "[1] [2] [3] [4]"
+
+	/**
+	 * Formats an array of integers in square brackets.
+	 * e.g.: {1, 2, 3, 4} -> "[1] [2] [3] [4]"
+	 *
+	 * @param arr The array of integers to format
+	 * @return The formatted string
+	 */
 	public static String arrayOut(int[] arr) {
 		String out = "";
 		int[] arrayOfInt = arr;
@@ -120,8 +163,16 @@ public class ArrayOutput {
 		}
 		return out;
 	}
-	
-	//Prints out an object array with custom opener, closer and delimiter
+
+	/**
+	 * Formats an array of Objects with a custom style.
+	 *
+	 * @param arr The array of Objects to format
+	 * @param open The string to put before each element
+	 * @param close The string to put after each element
+	 * @param delimiter The string to put in between each element
+	 * @return The formatted string
+	 */
 	public static String customArray(Object[] arr, String open, String close, String delimiter) {
 		String out = "";
 		Object[] arrayOfObject = arr;
@@ -132,8 +183,16 @@ public class ArrayOutput {
 		}
 		return out;
 	}
-	
-	//Prints out an double array with custom opener, closer and delimiter
+
+	/**
+	 * Formats an array of doubles with a custom style.
+	 *
+	 * @param arr The array of doubles to format
+	 * @param open The string to put before each element
+	 * @param close The string to put after each element
+	 * @param delimiter The string to put in between each element
+	 * @return The formatted string
+	 */
 	public static String customArray(double[] arr, String open, String close, String delimiter) {
 		String out = "";
 		double[] arrayOfDouble = arr;
@@ -144,8 +203,16 @@ public class ArrayOutput {
 		}
 		return out;
 	}
-	
-	//Prints out an int array with custom opener, closer and delimiter
+
+	/**
+	 * Formats an array of integers with a custom style.
+	 *
+	 * @param arr The array of integers to format
+	 * @param open The string to put before each element
+	 * @param close The string to put after each element
+	 * @param delimiter The string to put in between each element
+	 * @return The formatted string
+	 */
 	public static String customArray(int[] arr, String open, String close, String delimiter) {
 		String out = "";
 		int[] arrayOfInt = arr;
