@@ -308,66 +308,6 @@ public class Input {
 		return tmp;
 	}
 
-	/**
-	 * Prompts the user with a menu and returns the index of their choice.
-	 *
-	 * @param title The title do display when prompting the user
-	 * @param options The list of options to present to the user
-	 * @return The index of the user's choice
-	 */
-	public int promptMenu(String title, String... options) {
-
-		// Display Title and options
-		System.out.println(Output.underline(title, 1) + "\n");
-		for (int i=0; i<options.length; i++) {
-			if (options[i] != null) {
-				System.out.println("[" + (i+1) + "]: " + options[i]);
-			}
-		}
-
-		// Get user's choice and return it
-		return getInt(1, options.length) - 1;
-	}
-
-	/**
-	 * Prompts the user with a menu and returns the index of their choice.
-	 * This also allows the developer to determine what the user has to
-	 * enter to select choices, allowing for custom menus.
-	 *
-	 * @param title The title do display when prompting the user
-	 * @param selectors The selector the user must enter to select each option
-	 * @param options The list of options to present to the user
-	 * @return The index of the user's choice
-	 */
-	public int promptMenu(String title, String[] selectors, String... options) {
-
-		// Display Title and options
-		System.out.println(Output.underline(title, 1) + "\n");
-		for (int i=0; i<options.length; i++) {
-			if (options[i] != null) {
-				if (selectors[i] != null) {
-					System.out.println("[" + selectors[i] + "]: " + options[i]);
-				} else {
-					System.out.println("[" + (i+1) + "]: " + options[i]);
-				}
-			}
-		}
-
-		// Get user's choice and find its index
-		int index = -1;
-		while (index == -1) {
-			String choice = getString();
-			for (int i = 0; i < selectors.length; i++) {
-				if (selectors[i] != null && selectors[i].equals(choice)) {
-					index = i;
-				}
-			}
-		}
-
-		// Returns user choice index
-		return index;
-	}
-
 	//Simple hidden method to see if an int array contains a certain value
 	private static boolean contains(int[] arr, int val) {
 		for (int curr : arr) {
