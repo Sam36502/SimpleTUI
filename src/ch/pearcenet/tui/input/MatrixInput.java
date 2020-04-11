@@ -9,7 +9,7 @@ import ch.pearcenet.tui.output.Output;
  * @author Samuel Pearce <sam @ aepearce.com></sam>
  * @version 2.1
  */
-public class MatrixInput {
+class MatrixInput {
 	
 	/**
 	 * Prompts the user to enter a matrix of integers.

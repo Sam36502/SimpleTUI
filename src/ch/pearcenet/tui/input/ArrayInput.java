@@ -1,6 +1,5 @@
 package ch.pearcenet.tui.input;
 
-import ch.pearcenet.tui.output.ArrayOutput;
 import ch.pearcenet.tui.output.Output;
 
 import java.util.ArrayList;
@@ -76,7 +75,7 @@ class ArrayInput {
 			System.out.println("Enter the next value:");
 			res.add(Input.getInt());
 
-			System.out.println(ArrayOutput.arrayOut(res.toArray()));
+			System.out.println(Output.arrayOut(res.toArray()));
 			System.out.println("Is this all the data you wish to enter?");
 			isDone = Input.getBool();
 		}
@@ -144,7 +143,7 @@ class ArrayInput {
 			System.out.println("Enter the next value:");
 			res.add(Input.getDouble());
 
-			System.out.println(ArrayOutput.arrayOut(res.toArray()));
+			System.out.println(Output.arrayOut(res.toArray()));
 			System.out.println("Is this all the data you wish to enter?");
 			isDone = Input.getBool();
 		}
@@ -212,7 +211,7 @@ class ArrayInput {
 			System.out.println("Enter the next value:");
 			res.add(Input.getString());
 
-			System.out.println(ArrayOutput.arrayOut(res.toArray()));
+			System.out.println(Output.arrayOut(res.toArray()));
 			System.out.println("Is this all the data you wish to enter?");
 			isDone = Input.getBool();
 		}

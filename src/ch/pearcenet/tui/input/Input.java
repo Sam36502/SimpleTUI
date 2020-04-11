@@ -1,10 +1,10 @@
 package ch.pearcenet.tui.input;
 
-import ch.pearcenet.tui.output.ArrayOutput;
 import ch.pearcenet.tui.output.Output;
 
 import java.io.File;
 import java.math.BigInteger;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -30,6 +30,10 @@ public class Input {
 	 * Stores whether the global Scanner is currently open.
 	 */
 	private static boolean isOpen = false;
+
+	/*
+	 * Basic Input Methods
+	 */
 
 	/**
 	 * Changes the prompt that's displayed whenever the input methods are called.
@@ -220,7 +224,7 @@ public class Input {
 			if (contains(range, tmp)) {
 				isValid = true;
 			} else {
-				System.out.println("Warning: Only the numbers " + ArrayOutput.sentenceArray(range) + " are allowed.");
+				System.out.println("Warning: Only the numbers " + Output.oxfordSentenceFormat(range) + " are allowed.");
 			}
 		} while (!isValid);
 		return tmp;
@@ -298,7 +302,7 @@ public class Input {
 			if (contains(range, tmp)) {
 				isValid = true;
 			} else {
-				System.out.println("Warning: only the numbers " + ArrayOutput.sentenceArray(range) + " are allowed.");
+				System.out.println("Warning: only the numbers " + Output.oxfordSentenceFormat(range) + " are allowed.");
 			}
 		} while (!isValid);
 		return tmp;
@@ -383,4 +387,117 @@ public class Input {
 		}
 		return false;
 	}
+
+	/*
+	 * Array Input Methods
+	 */
+
+	/**
+	 * Prompts the user for an integer array with a predefined
+	 * length. The user is asked to confirm their choice and
+	 * may re-enter all the values if they don't confirm their choice.
+	 *
+	 * @param len Length of the array to prompt the user for.
+	 * @return The integer array entered by the user.
+	 */
+	public static ArrayList<Integer> getIntArray(int len) {
+		return ArrayInput.getIntArray(len);
+	}
+	/**
+	 * Prompts the user for an integer array size and then prompts
+	 * them for that many integers. The user will be asked to confirm
+	 * the array's contents. If the user does not agree with the array's
+	 * contents, they can re-enter all elements of the array again.
+	 *
+	 * @return The integer array entered by the user.
+	 */
+	public static ArrayList<Integer> getIntArray() {
+		return ArrayInput.getIntArray();
+	}
+	/**
+	 * Prompts the user for a double array with a predefined
+	 * length. The user is asked to confirm their choice and
+	 * may re-enter all the values if they don't confirm their choice.
+	 *
+	 * @param len Length of the array to prompt the user for.
+	 * @return The double array entered by the user.
+	 */
+	public static ArrayList<Double> getDoubleArray(int len) {
+		return ArrayInput.getDoubleArray(len);
+	}
+	/**
+	 * Prompts the user for an double array size and then prompts
+	 * them for that many doubles. The user will be asked to confirm
+	 * the array's contents. If the user does not agree with the array's
+	 * contents, they can re-enter all elements of the array again.
+	 *
+	 * @return The integer array entered by the user.
+	 */
+	public static ArrayList<Double> getDoubleArray() {
+		return ArrayInput.getDoubleArray();
+	}
+	/**
+	 * Prompts the user for a String array with a predefined
+	 * length. The user is asked to confirm their choice and
+	 * may re-enter all the values if they don't confirm their choice.
+	 *
+	 * @param len Length of the array to prompt the user for.
+	 * @return The String array entered by the user.
+	 */
+	public static ArrayList<String> getStringArray(int len) {
+		return ArrayInput.getStringArray(len);
+	}
+	/**
+	 * Prompts the user for a String array size and then prompts
+	 * them for that many Strings. The user will be asked to confirm
+	 * the array's contents. If the user does not agree with the array's
+	 * contents, they can re-enter all elements of the array again.
+	 *
+	 * @return The String array entered by the user.
+	 */
+	public static ArrayList<String> getStringArray() {
+		return ArrayInput.getStringArray();
+	}
+
+	/*
+	 * Matrix Input Methods
+	 */
+
+	/**
+	 * Prompts the user to enter a matrix of integers.
+	 * Displays the current state of the matrix in a grid.
+	 * The screen is also cleared after every cell prompt.
+	 *
+	 * @param width The width of the desired return matrix
+	 * @param height The height of the desired return matrix
+	 * @return A 2D array of the size given filled by the user's input
+	 */
+	public static int[][] getIntMatrix(int width, int height) {
+		return MatrixInput.getIntMatrix(width, height);
+	}
+	/**
+	 * Prompts the user to enter a matrix of double precision floating point numbers.
+	 * Displays the current state of the matrix in a grid.
+	 * The screen is also cleared after every cell prompt.
+	 *
+	 * @param width The width of the desired return matrix
+	 * @param height The height of the desired return matrix
+	 * @return A 2D array of the size given filled by the user's input
+	 */
+	public static double[][] getDoubleMatrix(int width, int height) {
+		return MatrixInput.getDoubleMatrix(width, height);
+	}
+	/**
+	 * Prompts the user to enter a matrix of strings.
+	 * Displays the current state of the matrix in a grid.
+	 * The screen is also cleared after every cell prompt.
+	 *
+	 * @param width The width of the desired return matrix
+	 * @param height The height of the desired return matrix
+	 * @return A 2D array of the size given filled by the user's input
+	 */
+	public static String[][] getStringMatrix(int width, int height) {
+		return MatrixInput.getStringMatrix(width, height);
+	}
+
 }

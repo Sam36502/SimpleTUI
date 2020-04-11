@@ -9,6 +9,10 @@ package ch.pearcenet.tui.output;
  */
 public class Output {
 
+	/*
+	 * Basic Output Formatting Methods
+	 */
+
 	/**
 	 * Takes a string and returns the string with '-'
 	 * characters as an underline, with optional overflow
@@ -18,7 +22,7 @@ public class Output {
 	 * @param overflow The number of extra underlines to add either side of the string
 	 * @return The formatted string including a trailing newline
 	 */
-	public static String underline (String str, int overflow) {
+	public static String underline(String str, int overflow) {
 		return " ".repeat(overflow) + str + "\n" + "-".repeat(2*overflow + str.length()) + "\n";
 	}
 
@@ -101,6 +105,144 @@ public class Output {
 		}
 	}
 
+	/*
+	 * Array Output Formatting Methods
+	 */
+
+	/**
+	 * Formats an array of Objects like a natural sentence.
+	 * e.g.: {Obj1, Obj2, Obj3} -> "Obj1, Obj2 and Obj3"
+	 *
+	 * @param arr The array of Objects to format
+	 * @return The formatted string
+	 */
+	public static String sentenceFormat(Object[] arr) {
+		return ArrayOutput.sentenceFormat(arr);
+	}
+	/**
+	 * Formats an array of doubles like a natural sentence.
+	 * e.g.: {1.1, 2.2, 3.3} -> "1.1, 2.2 and 3.3"
+	 *
+	 * @param arr The array of doubles to format
+	 * @return The formatted string
+	 */
+	public static String sentenceFormat(double[] arr) {
+		return ArrayOutput.sentenceFormat(arr);
+	}
+	/**
+	 * Formats an array of integers like a natural sentence.
+	 * e.g.: {1, 2, 3, 4} -> "1, 2, 3 and 4"
+	 *
+	 * @param arr The array of integers to format
+	 * @return The formatted string
+	 */
+	public static String sentenceFormat(int[] arr) {
+		return ArrayOutput.sentenceFormat(arr);
+	}
+	/**
+	 * Formats an array of Objects like a natural sentence.
+	 * This version includes the oxford comma
+	 * e.g.: {Obj1, Obj2, Obj3} -> "Obj1, Obj2, and Obj3"
+	 *
+	 * @param arr The array of Objects to format
+	 * @return The formatted string
+	 */
+	public static String oxfordSentenceFormat(Object[] arr) {
+		return ArrayOutput.oxfordSentenceFormat(arr);
+	}
+	/**
+	 * Formats an array of doubles like a natural sentence.
+	 * This version includes the oxford comma.
+	 * e.g.: {1.1, 2.2, 3.3} -> "1.1, 2.2, and 3.3"
+	 *
+	 * @param arr The array of doubles to format
+	 * @return The formatted string
+	 */
+	public static String oxfordSentenceFormat(double[] arr) {
+		return ArrayOutput.oxfordSentenceFormat(arr);
+	}
+	/**
+	 * Formats an array of integers like a natural sentence.
+	 * This version includes the oxford comma.
+	 * e.g.: {1, 2, 3, 4} -> "1, 2, 3, and 4"
+	 *
+	 * @param arr The array of integers to format
+	 * @return The formatted string
+	 */
+	public static String oxfordSentenceFormat(int[] arr) {
+		return ArrayOutput.oxfordSentenceFormat(arr);
+	}
+	/**
+	 * Formats an array of Objects in square brackets.
+	 * e.g.: {Obj1, Obj2, Obj3} -> "[Obj1] [Obj2] [Obj3]"
+	 *
+	 * @param arr The array of Objects to format
+	 * @return The formatted string
+	 */
+	public static String arrayOut(Object[] arr) {
+		return ArrayOutput.arrayOut(arr);
+	}
+	/**
+	 * Formats an array of doubles in square brackets.
+	 * e.g.: {1.1, 2.2, 3.3} -> "[1.1] [2.2] [3.3]"
+	 *
+	 * @param arr The array of doubles to format
+	 * @return The formatted string
+	 */
+	public static String arrayOut(double[] arr) {
+		return ArrayOutput.arrayOut(arr);
+	}
+	/**
+	 * Formats an array of integers in square brackets.
+	 * e.g.: {1, 2, 3, 4} -> "[1] [2] [3] [4]"
+	 *
+	 * @param arr The array of integers to format
+	 * @return The formatted string
+	 */
+	public static String arrayOut(int[] arr) {
+		return ArrayOutput.arrayOut(arr);
+	}
+	/**
+	 * Formats an array of Objects with a custom style.
+	 *
+	 * @param arr The array of Objects to format
+	 * @param open The string to put before each element
+	 * @param close The string to put after each element
+	 * @param delimiter The string to put in between each element
+	 * @return The formatted string
+	 */
+	public static String customArray(Object[] arr, String open, String close, String delimiter) {
+		return ArrayOutput.customArray(arr, open, close, delimiter);
+	}
+	/**
+	 * Formats an array of doubles with a custom style.
+	 *
+	 * @param arr The array of doubles to format
+	 * @param open The string to put before each element
+	 * @param close The string to put after each element
+	 * @param delimiter The string to put in between each element
+	 * @return The formatted string
+	 */
+	public static String customArray(double[] arr, String open, String close, String delimiter) {
+		return ArrayOutput.customArray(arr, open, close, delimiter);
+	}
+	/**
+	 * Formats an array of integers with a custom style.
+	 *
+	 * @param arr The array of integers to format
+	 * @param open The string to put before each element
+	 * @param close The string to put after each element
+	 * @param delimiter The string to put in between each element
+	 * @return The formatted string
+	 */
+	public static String customArray(int[] arr, String open, String close, String delimiter) {
+		return ArrayOutput.customArray(arr, open, close, delimiter);
+	}
+
+	/*
+	 * Matrix Output Formatting Methods
+	 */
+
 	/**
 	 * Takes a bitmap matrix and displays an image
 	 * where every 1 is a '#' and every other
@@ -110,9 +252,8 @@ public class Output {
 	 * @return The image formatted as a string to be displayed
 	 */
 	public static String bitmap(int[][] image) {
-		return bitmap(image, '#');
+		return MatrixOutput.bitmap(image);
 	}
-
 	/**
 	 * Takes a bitmap matrix and displays an image
 	 * where every 1 is the pixel char and every other
@@ -123,22 +264,8 @@ public class Output {
 	 * @return The image formatted as a string to be displayed
 	 */
 	public static String bitmap(int[][] image, char pixel) {
-		String out = "";
-
-		for (int x = 0; x < image.length; x++) {
-			for (int y = 0; y < image[x].length; y++) {
-				if (image[x][y] == 1) {
-					out = out + pixel;
-				} else {
-					out = out + " ";
-				}
-			}
-			out = out + "\n";
-		}
-
-		return out;
+		return MatrixOutput.bitmap(image, pixel);
 	}
-
 	/**
 	 * Takes a integer matrix and displays an image
 	 * where every integer maps to a charset. If the
@@ -150,22 +277,8 @@ public class Output {
 	 * @return The image formatted as a string to be displayed
 	 */
 	public static String bitmap(int[][] image, char[] charset) {
-		String out = "";
-
-		for (int x = 0; x < image.length; x++) {
-			for (int y = 0; y < image[x].length; y++) {
-				if (image[x][y] == 0) {
-					out = out + " ";
-				} else if (image[x][y] <= charset.length) {
-					out = out + charset[(image[x][y] - 1)];
-				}
-			}
-			out = out + "\n";
-		}
-
-		return out;
+		return MatrixOutput.bitmap(image, charset);
 	}
-
 	/**
 	 * Takes a bitmap matrix and displays an image
 	 * where every true is a '#' and every false is a ' '.
@@ -174,9 +287,8 @@ public class Output {
 	 * @return The image formatted as a string to be displayed
 	 */
 	public static String bitmap(boolean[][] image) {
-		return bitmap(image, '#');
+		return MatrixOutput.bitmap(image);
 	}
-
 	/**
 	 * Takes a bitmap matrix and displays an image
 	 * where every true is the pixel char and every false is a ' '.
@@ -186,22 +298,8 @@ public class Output {
 	 * @return The image formatted as a string to be displayed
 	 */
 	public static String bitmap(boolean[][] image, char pixel) {
-		String out = "";
-
-		for (int x = 0; x < image.length; x++) {
-			for (int y = 0; y < image[x].length; y++) {
-				if (image[x][y]) {
-					out = out + pixel;
-				} else {
-					out = out + " ";
-				}
-			}
-			out = out + "\n";
-		}
-
-		return out;
+		return MatrixOutput.bitmap(image, pixel);
 	}
-
 	/**
 	 * Displays a matrix of Objects so long as they
 	 * have a toString method. The matrix is also
@@ -212,29 +310,8 @@ public class Output {
 	 * @return A formatted string of the objects toString representations
 	 */
 	public static String printMatrix(Object[][] mat) {
-		String out = "";
-		int longest = 0;
-
-		Object[][] arrayOfObject = mat;
-		int j = mat.length;
-		for (int i = 0; i < j; i++) {
-			Object[] x = arrayOfObject[i];
-			for (Object y : x)
-				if (y.toString().length() > longest)
-					longest = y.toString().length();
-		}
-		for (int x = 0; x < mat.length; x++) {
-			for (int y = 0; y < mat[x].length; y++) {
-				for (int i = 0; i < longest - mat[x][y].toString().length(); i++)
-					out = out + " ";
-				out = out + mat[x][y] + " ";
-			}
-			out = out + "\n";
-		}
-
-		return out;
+		return MatrixOutput.printMatrix(mat);
 	}
-
 	/**
 	 * Displays a matrix of integers. The matrix is
 	 * also automatically formatted so that each column
@@ -244,29 +321,8 @@ public class Output {
 	 * @return A formatted string of the objects toString representations
 	 */
 	public static String printMatrix(int[][] mat) {
-		String out = "";
-		int longest = 0;
-
-		int[][] arrayOfInt = mat;
-		int j = mat.length;
-		for (int i = 0; i < j; i++) {
-			int[] x = arrayOfInt[i];
-			for (int y : x)
-				if ((y + "").length() > longest)
-					longest = (y + "").length();
-		}
-		for (int x = 0; x < mat.length; x++) {
-			for (int y = 0; y < mat[x].length; y++) {
-				for (int i = 0; i < longest - (mat[x][y] + "").length(); i++)
-					out = out + " ";
-				out = out + mat[x][y] + " ";
-			}
-			out = out + "\n";
-		}
-
-		return out;
+		return MatrixOutput.printMatrix(mat);
 	}
-
 	/**
 	 * Displays a matrix of doubles. The matrix is
 	 * also automatically formatted so that each column
@@ -276,27 +332,7 @@ public class Output {
 	 * @return A formatted string of the objects toString representations
 	 */
 	public static String printMatrix(double[][] mat) {
-		String out = "";
-		int longest = 0;
-
-		double[][] arrayOfDouble = mat;
-		int j = mat.length;
-		for (int i = 0; i < j; i++) {
-			double[] x = arrayOfDouble[i];
-			for (double y : x)
-				if ((y + "").length() > longest)
-					longest = (y + "").length();
-		}
-		for (int x = 0; x < mat.length; x++) {
-			for (int y = 0; y < mat[x].length; y++) {
-				for (int i = 0; i < longest - (mat[x][y] + "").length(); i++)
-					out = out + " ";
-				out = out + mat[x][y] + " ";
-			}
-			out = out + "\n";
-		}
-
-		return out;
+		return MatrixOutput.printMatrix(mat);
 	}
 
 }
