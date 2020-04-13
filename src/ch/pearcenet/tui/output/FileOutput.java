@@ -118,7 +118,7 @@ class FileOutput {
         str.append("# '" + filename + "' created " + LocalDateTime.now().format(DateTimeFormatter.ISO_LOCAL_DATE_TIME));
 
         for (Map.Entry entry: content.entrySet()) {
-            str.append(System.lineSeparator() + entry.getKey() + " = " + entry.getValue());
+            str.append("\r\n" + entry.getKey() + " = " + entry.getValue());
         }
 
         saveContent(filename, str.toString());

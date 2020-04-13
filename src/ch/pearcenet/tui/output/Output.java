@@ -1,19 +1,16 @@
 package ch.pearcenet.tui.output;
 
-import java.io.FileOutputStream;
+import ch.pearcenet.tui.table.Table;
+
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Output Class
  * Provides many static methods for formatting output
  *
  * @author Samuel Pearce <sam @ aepearce.com>
- * @version 2.1
+ * @version 2.2
  */
 public class Output {
 
@@ -400,6 +397,16 @@ public class Output {
 	 */
 	public static void savePropertiesToFile(String filename, HashMap<String, String> content) throws IOException {
 		FileOutput.saveProperties(filename, content);
+	}
+	/**
+	 * Saves a table to a CSV file following
+	 * RFC-4180 Standard CSV format.
+	 * @param filename The file to save data to
+	 * @param content The Table to save data from
+	 * @throws IOException Thrown if the content cannot be saved to the file
+	 */
+	public static void saveTableToFile(String filename, Table content) throws IOException {
+		FileOutput.saveCSV(filename, content);
 	}
 
 }
