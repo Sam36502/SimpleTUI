@@ -55,6 +55,51 @@ class FileOutput {
         saveContent(filename, str.toString());
     }
 
+    /**
+     * Saves an array of integers in a properties file
+     * @param filename The filename to save to
+     * @param content The integer array to save to the file
+     * @throws IOException Thrown if the content is unable to be saved to the file
+     */
+    public static void saveArray(String filename, int[] content) throws IOException {
+        HashMap<String, String> props = new HashMap<>();
+        props.put("length", "" + content.length);
+        for (int i=0; i<content.length; i++) {
+            props.put("" + i, "" + content[i]);
+        }
+        saveProperties(filename, props);
+    }
+
+    /**
+     * Saves an array of integers in a properties file
+     * @param filename The filename to save to
+     * @param content The integer array to save to the file
+     * @throws IOException Thrown if the content is unable to be saved to the file
+     */
+    public static void saveArray(String filename, double[] content) throws IOException {
+        HashMap<String, String> props = new HashMap<>();
+        props.put("length", "" + content.length);
+        for (int i=0; i<content.length; i++) {
+            props.put("" + i, "" + content[i]);
+        }
+        saveProperties(filename, props);
+    }
+
+    /**
+     * Saves an array of integers in a properties file
+     * @param filename The filename to save to
+     * @param content The integer array to save to the file
+     * @throws IOException Thrown if the content is unable to be saved to the file
+     */
+    public static void saveArray(String filename, String[] content) throws IOException {
+        HashMap<String, String> props = new HashMap<>();
+        props.put("length", "" + content.length);
+        for (int i=0; i<content.length; i++) {
+            props.put("" + i, "" + content[i]);
+        }
+        saveProperties(filename, props);
+    }
+
     /*
      * File Type Data saving methods
      */
@@ -75,7 +120,5 @@ class FileOutput {
 
         saveContent(filename, str.toString());
     }
-
-    
 
 }

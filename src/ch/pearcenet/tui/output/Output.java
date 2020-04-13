@@ -1,5 +1,13 @@
 package ch.pearcenet.tui.output;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Output Class
  * Provides many static methods for formatting output
@@ -333,6 +341,65 @@ public class Output {
 	 */
 	public static String printMatrix(double[][] mat) {
 		return MatrixOutput.printMatrix(mat);
+	}
+
+	/*
+	 * File Output Methods
+	 */
+
+	/**
+	 * Saves a string of text to a file
+	 * @param filename Filename to save to
+	 * @param content File contents to save
+	 * @throws IOException Thrown if the content is unable to be saved to the file
+	 */
+	public static void saveToFile(String filename, String content) throws IOException {
+		FileOutput.saveContent(filename, content);
+	}
+	/**
+	 * Saves an array of bytes to a file
+	 * @param filename The file to save the contents to
+	 * @param content The bytes to save to the file
+	 * @throws IOException Thrown if the content is unable to be saved to the file
+	 */
+	public static void saveToFile(String filename, byte[] content) throws IOException {
+		FileOutput.saveContent(filename, content);
+	}
+	/**
+	 * Saves an array of integers in a properties file
+	 * @param filename The filename to save to
+	 * @param content The integer array to save to the file
+	 * @throws IOException Thrown if the content is unable to be saved to the file
+	 */
+	public static void saveArrayToFile(String filename, int[] content) throws IOException {
+		FileOutput.saveArray(filename, content);
+	}
+	/**
+	 * Saves an array of integers in a properties file
+	 * @param filename The filename to save to
+	 * @param content The integer array to save to the file
+	 * @throws IOException Thrown if the content is unable to be saved to the file
+	 */
+	public static void saveArrayToFile(String filename, double[] content) throws IOException {
+		FileOutput.saveArray(filename, content);
+	}
+	/**
+	 * Saves an array of integers in a properties file
+	 * @param filename The filename to save to
+	 * @param content The integer array to save to the file
+	 * @throws IOException Thrown if the content is unable to be saved to the file
+	 */
+	public static void saveArrayToFile(String filename, String[] content) throws IOException {
+		FileOutput.saveArray(filename, content);
+	}
+	/**
+	 * Saves a hashmap in a properties file
+	 * @param filename The file
+	 * @param content The properties to save to a file
+	 * @throws IOException Thrown if the content cannot be saved
+	 */
+	public static void savePropertiesToFile(String filename, HashMap<String, String> content) throws IOException {
+		FileOutput.saveProperties(filename, content);
 	}
 
 }
