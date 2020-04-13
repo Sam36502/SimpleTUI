@@ -1,4 +1,4 @@
-package ch.pearcenet.tui.output.table;
+package ch.pearcenet.tui.table;
 
 import ch.pearcenet.tui.output.Output;
 
@@ -129,5 +129,13 @@ public class Column<T> {
 		}
 
 		return null;
+	}
+
+	/**
+	 * Gets the title of this column.
+	 * @return The title of this column
+	 */
+	public String getTitle() {
+		return this.title;
 	}
 }

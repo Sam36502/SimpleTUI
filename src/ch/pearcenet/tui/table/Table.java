@@ -1,4 +1,4 @@
-package ch.pearcenet.tui.output.table;
+package ch.pearcenet.tui.table;
 
 /**
  * Table Class
@@ -83,5 +83,13 @@ public class Table {
 		}
 		System.out.println("+");
 		
+	}
+
+	/**
+	 * Gets the list of columns in this table
+	 * @return Column array
+	 */
+	public Column<?>[] getCols() {
+		return this.columns;
 	}
 }

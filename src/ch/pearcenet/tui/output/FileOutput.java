@@ -1,5 +1,8 @@
 package ch.pearcenet.tui.output;
 
+import ch.pearcenet.tui.table.Column;
+import ch.pearcenet.tui.table.Table;
+
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -108,7 +111,7 @@ class FileOutput {
      * Saves a hashmap in a properties file
      * @param filename The file
      * @param content The properties to save to a file
-     * @throws IOException Thrown if the content cannot be saved
+     * @throws IOException Thrown if the content cannot be saved to the file
      */
     public static void saveProperties(String filename, HashMap<String, String> content) throws IOException {
         StringBuilder str = new StringBuilder();
@@ -119,6 +122,52 @@ class FileOutput {
         }
 
         saveContent(filename, str.toString());
+    }
+
+    /**
+     * Saves a table to a CSV file following
+     * RFC-4180 Standard CSV format.
+     * @param filename The file to save data to
+     * @param content The Table to save data from
+     * @throws IOException Thrown if the content cannot be saved to the file
+     */
+    public static void saveCSV(String filename, Table content) throws IOException {
+        StringBuilder str = new StringBuilder();
+
+        // Add the header row to the file
+        for (Column<?> col: content.getCols()) {
+            String head = col.getTitle();
+            head.replace("\"", "\"\"");
+            if (head.contains("\r\n")) head = "\"" + head + "\"";
+            str.append(head + ",");
+        }
+        if (str.length() > 0) str.deleteCharAt(str.length() - 1);
+        str.append("\r\n");
+
+        // Add data rows
+        boolean allRows = false;
+        int index = 0;
+        while (!allRows) {
+            allRows = true;
+
+            // Add all columns
+            for (Column<?> col: content.getCols()) {
+                Object obj = col.get(index);
+                if (obj != null) allRows = false;
+                String colStr = obj.toString();
+
+                colStr.replace("\"", "\"\"");
+                if (colStr.contains("\r\n")) colStr = "\"" + colStr + "\"";
+                str.append(colStr + ",");
+            }
+            if (str.length() > 0) str.deleteCharAt(str.length() - 1);
+            str.append("\r\n");
+            index++;
+        }
+
+        // Save data to file
+        saveContent(filename, str.toString());
+
     }
 
 }
