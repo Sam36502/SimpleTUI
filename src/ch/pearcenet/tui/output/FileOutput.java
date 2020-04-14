@@ -6,7 +6,7 @@ import ch.pearcenet.tui.table.Table;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
@@ -115,7 +115,7 @@ class FileOutput {
      */
     public static void saveProperties(String filename, HashMap<String, String> content) throws IOException {
         StringBuilder str = new StringBuilder();
-        str.append("# '" + filename + "' created " + LocalDateTime.now().format(DateTimeFormatter.ISO_LOCAL_DATE_TIME));
+        str.append("# '" + filename + "' created " + LocalDate.now().format(DateTimeFormatter.ISO_LOCAL_DATE));
 
         for (Map.Entry entry: content.entrySet()) {
             str.append("\r\n" + entry.getKey() + " = " + entry.getValue());
@@ -152,6 +152,7 @@ class FileOutput {
 
             // Add all columns
             for (Column<?> col: content.getCols()) {
+                //TODO: Un-Fuck this \/
                 Object obj = col.get(index);
                 if (obj != null) allRows = false;
                 String colStr = obj.toString();

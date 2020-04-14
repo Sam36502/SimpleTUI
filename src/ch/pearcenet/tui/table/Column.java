@@ -2,6 +2,8 @@ package ch.pearcenet.tui.table;
 
 import ch.pearcenet.tui.output.Output;
 
+import java.util.ArrayList;
+
 /**
  * Column Class
  * Stores information of a certain data type to be displayed in a table
@@ -19,7 +21,7 @@ public class Column<T> {
 	/**
 	 * The contents of this column
 	 */
-	private T[] contents;
+	private ArrayList<T> contents;
 
 	/**
 	 * The text alignment type to be used when displaying this column
@@ -43,16 +45,22 @@ public class Column<T> {
 		LEFT, RIGHT, CENTER;
 	}
 
+	public Column() {
+		this.title = "";
+		this.contents = new ArrayList<T>();
+		this.alignment = alignType.CENTER;
+	}
+
 	/**
 	 * @param title The title of the column to be displayed with the column
 	 * @param contents An array of objects to be stored in this column
 	 * @param alignment How to align the text when displaying this column
 	 */
-	public Column(String title, T[] contents, alignType alignment) {
+	public Column(String title, ArrayList<T> contents, alignType alignment) {
 		this.title = title;
 		this.alignment = alignment;
-		this.contents = contents.clone();
-		length = contents.length;
+		this.contents = contents;
+		length = contents.size();
 
 		for (T curr : contents) {
 			if (curr.toString().length() > width) {
@@ -76,7 +84,7 @@ public class Column<T> {
 	 * @param value The new value to insert
 	 */
 	public void set(int index, T value) {
-		contents[index] = value;
+		contents.set(index, value);
 	}
 
 	/**
@@ -86,7 +94,9 @@ public class Column<T> {
 	 * @return The object retrieved
 	 */
 	public T get(int index) {
-		return contents[index];
+		if (index <= contents.size())
+			return null;
+		return contents.get(index);
 	}
 
 	/**
@@ -99,13 +109,19 @@ public class Column<T> {
 		switch (alignment) {
 		
 		case CENTER:
-			return Output.leftAlign(contents[index].toString(), width);
+			if (index >= contents.size())
+				return Output.centerAlign("", width);
+			return Output.centerAlign(contents.get(index).toString(), width);
 
 		case LEFT:
-			return Output.rightAlign(contents[index].toString(), width);
+			if (index >= contents.size())
+				return Output.leftAlign("", width);
+			return Output.leftAlign(contents.get(index).toString(), width);
 
 		case RIGHT:
-			return Output.centerAlign(contents[index].toString(), width);
+			if (index >= contents.size())
+				return Output.rightAlign("", width);
+			return Output.rightAlign(contents.get(index).toString(), width);
 		}
 
 		return null;
@@ -119,23 +135,46 @@ public class Column<T> {
 	public String getFormattedTitle() {
 		switch (alignment) {
 		case CENTER:
-			return Output.leftAlign(title, width);
+			return Output.centerAlign(title, width);
 
 		case LEFT:
-			return Output.rightAlign(title, width);
+			return Output.leftAlign(title, width);
 
 		case RIGHT:
-			return Output.centerAlign(title, width);
+			return Output.rightAlign(title, width);
 		}
 
 		return null;
 	}
 
-	/**
-	 * Gets the title of this column.
-	 * @return The title of this column
+	/*
+	 * Getters / Setters
 	 */
+
 	public String getTitle() {
-		return this.title;
+		return title;
+	}
+
+	public Column<T> setTitle(String title) {
+		this.title = title;
+		return this;
+	}
+
+	public ArrayList<T> getContents() {
+		return contents;
+	}
+
+	public Column<T> setContents(ArrayList<T> contents) {
+		this.contents = contents;
+		return this;
+	}
+
+	public alignType getAlignment() {
+		return alignment;
+	}
+
+	public Column<T> setAlignment(alignType alignment) {
+		this.alignment = alignment;
+		return this;
 	}
 }

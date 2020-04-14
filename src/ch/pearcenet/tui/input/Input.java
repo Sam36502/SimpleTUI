@@ -1,10 +1,15 @@
 package ch.pearcenet.tui.input;
 
+import ch.pearcenet.tui.exceptions.CsvSyntaxException;
 import ch.pearcenet.tui.output.Output;
+import ch.pearcenet.tui.table.Column;
+import ch.pearcenet.tui.table.Table;
 
 import java.io.File;
+import java.io.IOException;
 import java.math.BigInteger;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
 
 /**
@@ -438,6 +443,66 @@ public class Input {
 	 */
 	public static String[][] getStringMatrix(int width, int height) {
 		return MatrixInput.getStringMatrix(width, height);
+	}
+	/**
+	 * Loads a String from a file and returns it.
+	 * Uses CRLF as line separator.
+	 * @param filename The file to load from
+	 * @return A String with the file contents
+	 * @throws IOException Thrown if the file couldn't be loaded
+	 */
+	public static String loadStringFromFile(String filename) throws IOException {
+		return FileInput.loadString(filename);
+	}
+	/**
+	 * Loads an array of integers from a file.
+	 * @param filename The file to load the data from
+	 * @return The array of integers loaded from the file
+	 * @throws IOException Thrown if the data couldn't be loaded
+	 */
+	public static int[] loadIntArrayFromFile(String filename) throws Exception {
+		return FileInput.loadIntArray(filename);
+	}
+	/**
+	 * Loads an array of doubles from a file.
+	 * @param filename The file to load the data from
+	 * @return The array of doubles loaded from the file
+	 * @throws IOException Thrown if the data couldn't be loaded
+	 */
+	public static double[] loadDoubleArrayFromFile(String filename) throws Exception {
+		return FileInput.loadDoubleArray(filename);
+	}
+	/**
+	 * Loads an array of Strings from a file.
+	 * @param filename The file to load the data from
+	 * @return The array of Strings loaded from the file
+	 * @throws IOException Thrown if the data couldn't be loaded
+	 */
+	public static String[] loadStringArrayFromFile(String filename) throws Exception {
+		return FileInput.loadStringArray(filename);
+	}
+	/**
+	 * Loads a HashMap from a properties file.
+	 * Line comments are denoted by a '#'.
+	 * Keys and values are separated by an '='.
+	 * There may be any number of spaces between the
+	 * equals sign and either key or value.
+	 * @param filename The file to load the data from
+	 * @return A HashMap of the keys and values
+	 * @throws IOException Thrown if the data couldn't be loaded
+	 */
+	public static HashMap<String, String> loadPropertiesFile(String filename) throws IOException {
+		return FileInput.loadProperties(filename);
+	}
+	/**
+	 * Loads a Table from a CSV file.
+	 * The CSV follows RFC-4180 format.
+	 * @param filename The file to load the data from
+	 * @return The Table of loaded data
+	 * @throws IOException Thrown if the data couldn't be loaded
+	 */
+	public static Table loadCSVFile(String filename) throws IOException {
+		return FileInput.loadCSV(filename);
 	}
 
 }

@@ -1,5 +1,7 @@
 package ch.pearcenet.tui.table;
 
+import java.util.ArrayList;
+
 /**
  * Table Class
  * Formats and displays a group of Columns together
@@ -12,7 +14,7 @@ public class Table {
 	/**
 	 * The Columns to display in this Table
 	 */
-	private Column<?>[] columns;
+	private ArrayList<Column> columns;
 
 	/**
 	 * The length of the longest Column, to format the rest by
@@ -22,8 +24,8 @@ public class Table {
 	/**
 	 * @param columns The Columns to use in this Table
 	 */
-	public Table(Column<?>[] columns) {
-		this.columns = ((Column[]) columns.clone());
+	public Table(ArrayList<Column> columns) {
+		this.columns = columns;
 
 		for (Column<?> curr : columns) {
 			if (curr.length > longest) {
@@ -89,7 +91,7 @@ public class Table {
 	 * Gets the list of columns in this table
 	 * @return Column array
 	 */
-	public Column<?>[] getCols() {
+	public ArrayList<Column> getCols() {
 		return this.columns;
 	}
 }
