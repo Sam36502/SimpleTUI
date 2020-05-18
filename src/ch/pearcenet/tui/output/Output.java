@@ -1,8 +1,39 @@
 package ch.pearcenet.tui.output;
 
+/**
+ * Output Class
+ * Provides many static methods for formatting output
+ *
+ * @author Samuel Pearce <sam @ aepearce.com>
+ * @version 2.1
+ */
 public class Output {
 
-	// Returns a string left aligned with spaces
+	/*
+	 * Basic Output Formatting Methods
+	 */
+
+	/**
+	 * Takes a string and returns the string with '-'
+	 * characters as an underline, with optional overflow
+	 * either side of the string.
+	 *
+	 * @param str The string to underline
+	 * @param overflow The number of extra underlines to add either side of the string
+	 * @return The formatted string including a trailing newline
+	 */
+	public static String underline(String str, int overflow) {
+		return " ".repeat(overflow) + str + "\n" + "-".repeat(2*overflow + str.length()) + "\n";
+	}
+
+	/**
+	 * Takes a string and returns the string left-
+	 * padded to a certain length.
+	 *
+	 * @param text The string to format
+	 * @param len The fixed length to pad the string to
+	 * @return The string padded with spaces to align the text to the right
+	 */
 	public static String leftAlign(String text, int len) {
 		if (text.length() >= len) {
 			return text;
@@ -14,7 +45,14 @@ public class Output {
 		return text + res;
 	}
 
-	// Returns a string right aligned with spaces
+	/**
+	 * Takes a string and returns the string right-
+	 * padded to a certain length.
+	 *
+	 * @param text The string to format
+	 * @param len The fixed length to pad the string to
+	 * @return The string padded with spaces to align the text to the left
+	 */
 	public static String rightAlign(String text, int len) {
 		if (text.length() >= len) {
 			return text;
@@ -26,7 +64,14 @@ public class Output {
 		return res + text;
 	}
 
-	// Returns a string center aligned with spaces
+	/**
+	 * Takes a string and returns the string left-
+	 * and right-padded to a certain length.
+	 *
+	 * @param text The string to format
+	 * @param len The fixed length to pad the string to
+	 * @return The string padded with spaces to align the text to the centre
+	 */
 	public static String centerAlign(String text, int len) {
 		if (text.length() >= len) {
 			return text;
@@ -51,154 +96,243 @@ public class Output {
 		return res;
 	}
 
-	// clears the screen and moves the cursor back to (1,1)
+	/**
+	 * 'Clears' the terminal by displaying 100 Carriage return characters.
+	 */
 	public static void clearScreen() {
 		for (int i = 0; i < 100; i++) {
 			System.out.println((char) 13);
 		}
 	}
 
-	// Returns a string format image from a simple integer bitmap
+	/*
+	 * Array Output Formatting Methods
+	 */
+
+	/**
+	 * Formats an array of Objects like a natural sentence.
+	 * e.g.: {Obj1, Obj2, Obj3} -> "Obj1, Obj2 and Obj3"
+	 *
+	 * @param arr The array of Objects to format
+	 * @return The formatted string
+	 */
+	public static String sentenceFormat(Object[] arr) {
+		return ArrayOutput.sentenceFormat(arr);
+	}
+	/**
+	 * Formats an array of doubles like a natural sentence.
+	 * e.g.: {1.1, 2.2, 3.3} -> "1.1, 2.2 and 3.3"
+	 *
+	 * @param arr The array of doubles to format
+	 * @return The formatted string
+	 */
+	public static String sentenceFormat(double[] arr) {
+		return ArrayOutput.sentenceFormat(arr);
+	}
+	/**
+	 * Formats an array of integers like a natural sentence.
+	 * e.g.: {1, 2, 3, 4} -> "1, 2, 3 and 4"
+	 *
+	 * @param arr The array of integers to format
+	 * @return The formatted string
+	 */
+	public static String sentenceFormat(int[] arr) {
+		return ArrayOutput.sentenceFormat(arr);
+	}
+	/**
+	 * Formats an array of Objects like a natural sentence.
+	 * This version includes the oxford comma
+	 * e.g.: {Obj1, Obj2, Obj3} -> "Obj1, Obj2, and Obj3"
+	 *
+	 * @param arr The array of Objects to format
+	 * @return The formatted string
+	 */
+	public static String oxfordSentenceFormat(Object[] arr) {
+		return ArrayOutput.oxfordSentenceFormat(arr);
+	}
+	/**
+	 * Formats an array of doubles like a natural sentence.
+	 * This version includes the oxford comma.
+	 * e.g.: {1.1, 2.2, 3.3} -> "1.1, 2.2, and 3.3"
+	 *
+	 * @param arr The array of doubles to format
+	 * @return The formatted string
+	 */
+	public static String oxfordSentenceFormat(double[] arr) {
+		return ArrayOutput.oxfordSentenceFormat(arr);
+	}
+	/**
+	 * Formats an array of integers like a natural sentence.
+	 * This version includes the oxford comma.
+	 * e.g.: {1, 2, 3, 4} -> "1, 2, 3, and 4"
+	 *
+	 * @param arr The array of integers to format
+	 * @return The formatted string
+	 */
+	public static String oxfordSentenceFormat(int[] arr) {
+		return ArrayOutput.oxfordSentenceFormat(arr);
+	}
+	/**
+	 * Formats an array of Objects in square brackets.
+	 * e.g.: {Obj1, Obj2, Obj3} -> "[Obj1] [Obj2] [Obj3]"
+	 *
+	 * @param arr The array of Objects to format
+	 * @return The formatted string
+	 */
+	public static String arrayOut(Object[] arr) {
+		return ArrayOutput.arrayOut(arr);
+	}
+	/**
+	 * Formats an array of doubles in square brackets.
+	 * e.g.: {1.1, 2.2, 3.3} -> "[1.1] [2.2] [3.3]"
+	 *
+	 * @param arr The array of doubles to format
+	 * @return The formatted string
+	 */
+	public static String arrayOut(double[] arr) {
+		return ArrayOutput.arrayOut(arr);
+	}
+	/**
+	 * Formats an array of integers in square brackets.
+	 * e.g.: {1, 2, 3, 4} -> "[1] [2] [3] [4]"
+	 *
+	 * @param arr The array of integers to format
+	 * @return The formatted string
+	 */
+	public static String arrayOut(int[] arr) {
+		return ArrayOutput.arrayOut(arr);
+	}
+	/**
+	 * Formats an array of Objects with a custom style.
+	 *
+	 * @param arr The array of Objects to format
+	 * @param open The string to put before each element
+	 * @param close The string to put after each element
+	 * @param delimiter The string to put in between each element
+	 * @return The formatted string
+	 */
+	public static String customArray(Object[] arr, String open, String close, String delimiter) {
+		return ArrayOutput.customArray(arr, open, close, delimiter);
+	}
+	/**
+	 * Formats an array of doubles with a custom style.
+	 *
+	 * @param arr The array of doubles to format
+	 * @param open The string to put before each element
+	 * @param close The string to put after each element
+	 * @param delimiter The string to put in between each element
+	 * @return The formatted string
+	 */
+	public static String customArray(double[] arr, String open, String close, String delimiter) {
+		return ArrayOutput.customArray(arr, open, close, delimiter);
+	}
+	/**
+	 * Formats an array of integers with a custom style.
+	 *
+	 * @param arr The array of integers to format
+	 * @param open The string to put before each element
+	 * @param close The string to put after each element
+	 * @param delimiter The string to put in between each element
+	 * @return The formatted string
+	 */
+	public static String customArray(int[] arr, String open, String close, String delimiter) {
+		return ArrayOutput.customArray(arr, open, close, delimiter);
+	}
+
+	/*
+	 * Matrix Output Formatting Methods
+	 */
+
+	/**
+	 * Takes a bitmap matrix and displays an image
+	 * where every 1 is a '#' and every other
+	 * number is a ' '.
+	 *
+	 * @param image An integer matrix in the shape of an image to be displayed
+	 * @return The image formatted as a string to be displayed
+	 */
 	public static String bitmap(int[][] image) {
-		return bitmap(image, '#');
+		return MatrixOutput.bitmap(image);
 	}
-
-	// Returns a string format image from a simple integer bitmap with a custom
-	// pixel char
+	/**
+	 * Takes a bitmap matrix and displays an image
+	 * where every 1 is the pixel char and every other
+	 * number is a ' '.
+	 *
+	 * @param image An integer matrix in the shape of an image to be displayed
+	 * @param pixel The character to display every time a 1 is seen in the matrix
+	 * @return The image formatted as a string to be displayed
+	 */
 	public static String bitmap(int[][] image, char pixel) {
-		String out = "";
-
-		for (int x = 0; x < image.length; x++) {
-			for (int y = 0; y < image[x].length; y++) {
-				if (image[x][y] == 1) {
-					out = out + pixel;
-				} else {
-					out = out + " ";
-				}
-			}
-			out = out + "\n";
-		}
-
-		return out;
+		return MatrixOutput.bitmap(image, pixel);
 	}
-
-	// Returns a string format image from a simple integer bitmap with a
-	// customizeable charset
+	/**
+	 * Takes a integer matrix and displays an image
+	 * where every integer maps to a charset. If the
+	 * integer is outside of the charset, a ' ' char
+	 * is put in it's place.
+	 *
+	 * @param image An integer matrix in the shape of an image to be displayed
+	 * @param charset A character array that maps to the integers in the matrix to make an image
+	 * @return The image formatted as a string to be displayed
+	 */
 	public static String bitmap(int[][] image, char[] charset) {
-		String out = "";
-
-		for (int x = 0; x < image.length; x++) {
-			for (int y = 0; y < image[x].length; y++) {
-				if (image[x][y] == 0) {
-					out = out + " ";
-				} else if (image[x][y] <= charset.length) {
-					out = out + charset[(image[x][y] - 1)];
-				}
-			}
-			out = out + "\n";
-		}
-
-		return out;
+		return MatrixOutput.bitmap(image, charset);
 	}
-
-	// Returns a string format image from a simple boolean-binary bitmap
+	/**
+	 * Takes a bitmap matrix and displays an image
+	 * where every true is a '#' and every false is a ' '.
+	 *
+	 * @param image A boolean matrix in the shape of an image to be displayed
+	 * @return The image formatted as a string to be displayed
+	 */
 	public static String bitmap(boolean[][] image) {
-		return bitmap(image, '#');
+		return MatrixOutput.bitmap(image);
 	}
-
-	// Returns a string format image from a simple boolean-binary bitmap with custom
-	// pixel char
+	/**
+	 * Takes a bitmap matrix and displays an image
+	 * where every true is the pixel char and every false is a ' '.
+	 *
+	 * @param image A boolean matrix in the shape of an image to be displayed
+	 * @param pixel The character to display every time a true is seen in the matrix
+	 * @return The image formatted as a string to be displayed
+	 */
 	public static String bitmap(boolean[][] image, char pixel) {
-		String out = "";
-
-		for (int x = 0; x < image.length; x++) {
-			for (int y = 0; y < image[x].length; y++) {
-				if (image[x][y]) {
-					out = out + pixel;
-				} else {
-					out = out + " ";
-				}
-			}
-			out = out + "\n";
-		}
-
-		return out;
+		return MatrixOutput.bitmap(image, pixel);
 	}
-
-	// Returns a string format image from a simple boolean-binary bitmap with
-	// customizable charset
+	/**
+	 * Displays a matrix of Objects so long as they
+	 * have a toString method. The matrix is also
+	 * automatically formatted so that each column is the
+	 * same width.
+	 *
+	 * @param mat The matrix of Objects to display
+	 * @return A formatted string of the objects toString representations
+	 */
 	public static String printMatrix(Object[][] mat) {
-		String out = "";
-		int longest = 0;
-
-		Object[][] arrayOfObject = mat;
-		int j = mat.length;
-		for (int i = 0; i < j; i++) {
-			Object[] x = arrayOfObject[i];
-			for (Object y : x)
-				if (y.toString().length() > longest)
-					longest = y.toString().length();
-		}
-		for (int x = 0; x < mat.length; x++) {
-			for (int y = 0; y < mat[x].length; y++) {
-				for (int i = 0; i < longest - mat[x][y].toString().length(); i++)
-					out = out + " ";
-				out = out + mat[x][y] + " ";
-			}
-			out = out + "\n";
-		}
-
-		return out;
+		return MatrixOutput.printMatrix(mat);
 	}
-
-	// Prints out an integer matrix
+	/**
+	 * Displays a matrix of integers. The matrix is
+	 * also automatically formatted so that each column
+	 * is the same width.
+	 *
+	 * @param mat The matrix of integers to display
+	 * @return A formatted string of the objects toString representations
+	 */
 	public static String printMatrix(int[][] mat) {
-		String out = "";
-		int longest = 0;
-
-		int[][] arrayOfInt = mat;
-		int j = mat.length;
-		for (int i = 0; i < j; i++) {
-			int[] x = arrayOfInt[i];
-			for (int y : x)
-				if ((y + "").length() > longest)
-					longest = (y + "").length();
-		}
-		for (int x = 0; x < mat.length; x++) {
-			for (int y = 0; y < mat[x].length; y++) {
-				for (int i = 0; i < longest - (mat[x][y] + "").length(); i++)
-					out = out + " ";
-				out = out + mat[x][y] + " ";
-			}
-			out = out + "\n";
-		}
-
-		return out;
+		return MatrixOutput.printMatrix(mat);
 	}
-
-	// Prints out a double matrix
+	/**
+	 * Displays a matrix of doubles. The matrix is
+	 * also automatically formatted so that each column
+	 * is the same width.
+	 *
+	 * @param mat The matrix of doubles to display
+	 * @return A formatted string of the objects toString representations
+	 */
 	public static String printMatrix(double[][] mat) {
-		String out = "";
-		int longest = 0;
-
-		double[][] arrayOfDouble = mat;
-		int j = mat.length;
-		for (int i = 0; i < j; i++) {
-			double[] x = arrayOfDouble[i];
-			for (double y : x)
-				if ((y + "").length() > longest)
-					longest = (y + "").length();
-		}
-		for (int x = 0; x < mat.length; x++) {
-			for (int y = 0; y < mat[x].length; y++) {
-				for (int i = 0; i < longest - (mat[x][y] + "").length(); i++)
-					out = out + " ";
-				out = out + mat[x][y] + " ";
-			}
-			out = out + "\n";
-		}
-
-		return out;
+		return MatrixOutput.printMatrix(mat);
 	}
 
 }

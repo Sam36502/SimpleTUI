@@ -2,9 +2,24 @@ package ch.pearcenet.tui.input;
 
 import ch.pearcenet.tui.output.Output;
 
-public class MatrixInput {
+/**
+ * Matrix Input Class
+ * Makes receiving a 2D array from users more convenient
+ *
+ * @author Samuel Pearce <sam @ aepearce.com></sam>
+ * @version 2.1
+ */
+class MatrixInput {
 	
-	//Prompts the user for a matrix of integers
+	/**
+	 * Prompts the user to enter a matrix of integers.
+	 * Displays the current state of the matrix in a grid.
+	 * The screen is also cleared after every cell prompt.
+	 *
+	 * @param width The width of the desired return matrix
+	 * @param height The height of the desired return matrix
+	 * @return A 2D array of the size given filled by the user's input
+	 */
 	public static int[][] getIntMatrix(int width, int height) {
 		
 		int[][] result = new int[height][width];
@@ -64,8 +79,16 @@ public class MatrixInput {
 
 		return result;
 	}
-	
-	//Prompts the user for a matrix of doubles
+
+	/**
+	 * Prompts the user to enter a matrix of double precision floating point numbers.
+	 * Displays the current state of the matrix in a grid.
+	 * The screen is also cleared after every cell prompt.
+	 *
+	 * @param width The width of the desired return matrix
+	 * @param height The height of the desired return matrix
+	 * @return A 2D array of the size given filled by the user's input
+	 */
 	public static double[][] getDoubleMatrix(int width, int height) {
 
 		double[][] result = new double[height][width];
@@ -124,8 +147,16 @@ public class MatrixInput {
 		} while (!Input.getBool());
 		return result;
 	}
-	
-	//Prompt the user for a matrix of strings
+
+	/**
+	 * Prompts the user to enter a matrix of strings.
+	 * Displays the current state of the matrix in a grid.
+	 * The screen is also cleared after every cell prompt.
+	 *
+	 * @param width The width of the desired return matrix
+	 * @param height The height of the desired return matrix
+	 * @return A 2D array of the size given filled by the user's input
+	 */
 	public static String[][] getStringMatrix(int width, int height) {
 		
 		String[][] result = new String[height][width];
