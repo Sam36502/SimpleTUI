@@ -1,5 +1,10 @@
 # SimpleTUI
 
+NOTE:
+
+This project has been discontinued, as it is unnecessary to re-invent the wheel so to speak.
+Everything in this library has been done better before.
+
 ## Download
 
 ### Download Latest Version: [SimpleTUI 2.1](https://github.com/Sam36502/SimpleTUI/raw/master/release/SimpleTUI_2.1.0.jar)
@@ -44,9 +49,4 @@ Some of the features included are:
  * Simple table visualization system
  * Left / right alignment
  * Menus with verification
- * Secure password input (Coming in v2.2...)
 
-
-
-Any experienced coders who may randomly stumble across this:
-rest assured, I'm overhauling the library for version 2.2.
