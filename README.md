@@ -5,7 +5,7 @@ NOTE:
 This project has been discontinued, as it is unnecessary to re-invent the wheel so to speak.
 Everything in this library has been done better before.
 EDIT: If you happen to be looking for some libraries that do everything this wanted to do
-but much better, [HERE](https://github.com/akullpp/awesome-java#cli) is what you want.
+but much better, [THIS](https://github.com/akullpp/awesome-java#cli) is what you want.
 
 ## Download
 
